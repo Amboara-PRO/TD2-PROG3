@@ -9,12 +9,9 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         DBConnection dbConnection = new DBConnection();
 
-        Connection connection;
-        try {
-            connection = dbConnection.getDBConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        dbConnection.close(connection);
+        DataRetriever dataRetriever = new DataRetriever();
+
+        Team team = dataRetriever.findTeamById(2);
+        System.out.println(team);
     }
 }

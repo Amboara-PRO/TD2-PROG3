@@ -10,13 +10,6 @@ public class Team {
     private ContinentEnum continent;
     private List<Player> players;
 
-    public Team(int id, String name, ContinentEnum continent, List<Player> players) {
-        this.id = id;
-        this.name = name;
-        this.continent = continent;
-        this.players = new ArrayList<>();
-    }
-
     public int getId() {
         return id;
     }
