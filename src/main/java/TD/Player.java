@@ -9,12 +9,23 @@ public class Player {
     private PlayerPositionEnum position;
     private Team team;
 
+    public Player(int id, String name, int age, PlayerPositionEnum position) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.position = position;
+    }
+
     public Player(int id, String name, int age, PlayerPositionEnum position, Team team) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.position = position;
         this.team = team;
+    }
+
+    public Player() {
+
     }
 
     public int getId() {
@@ -79,6 +90,7 @@ public class Player {
                 ", team=" + team +
                 '}';
     }
+
 
     public String getTeamName(){
         return team.getName();

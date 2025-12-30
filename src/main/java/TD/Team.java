@@ -10,6 +10,20 @@ public class Team {
     private ContinentEnum continent;
     private List<Player> players;
 
+    public Team() {
+    }
+
+    public Team(int id, String name, ContinentEnum continent, List<Player> players) {
+        this.id = id;
+        this.name = name;
+        this.continent = continent;
+        this.players = players;
+
+        // for(int i = 0 ; i < players.size() ; i++) {
+        //     players.get(i).setTeam(this);
+        // }
+    }
+
     public int getId() {
         return id;
     }
