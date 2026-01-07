@@ -8,6 +8,7 @@ public class Player {
     private int age;
     private PlayerPositionEnum position;
     private Team team;
+    private Integer goalNb;
 
     public Player(int id, String name, int age, PlayerPositionEnum position) {
         this.id = id;
@@ -22,6 +23,15 @@ public class Player {
         this.age = age;
         this.position = position;
         this.team = team;
+    }
+
+    public Player(int id, String name, int age, PlayerPositionEnum position, Team team, int goalNb) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.position = position;
+        this.team = team;
+        this.goalNb = goalNb;
     }
 
     public Player() {
@@ -68,6 +78,14 @@ public class Player {
         this.team = team;
     }
 
+    public Integer getGoalNb() {
+        return goalNb;
+    }
+
+    public void setGoalNb(Integer goalNb) {
+        this.goalNb = goalNb;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -90,7 +108,6 @@ public class Player {
                 ", team=" + team +
                 '}';
     }
-
 
     public String getTeamName(){
         return team.getName();

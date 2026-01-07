@@ -107,7 +107,7 @@ select Player.id, Player.name, Player.age, Player.position, Team.id as t_id, Tea
                 select count(player.id) from player where id = ?
                 """;
         String insert = """
-                insert into player(id, name, age, position, id_team) values (?,?,?,?,?)
+                insert into player(id, name, age, position, id_team, goal_nb) values (?,?,?,?,?,?)
                 """;
 
         connection.setAutoCommit(false);
@@ -128,6 +128,7 @@ select Player.id, Player.name, Player.age, Player.position, Team.id as t_id, Tea
             insertStatement.setInt(3, player.getAge());
             insertStatement.setString(4, player.getPosition().toString());
             insertStatement.setInt(5, player.getTeam().getId());
+            insertStatement.setInt(6, player.getGoalNb());
             insertStatement.executeUpdate();
         }
         connection.commit();
@@ -282,4 +283,20 @@ select Team.id as t_id, Team.name as t_name, Team.continent as t_continent from 
 
         return players;
     }
+    public Player mapPlayer(ResultSet rs, Team team) throws SQLException {
+        Player player = new Player();
+
+        player.setId(rs.getInt("id"));
+        player.setName(rs.getString("name"));
+        player.setAge(rs.getInt("age"));
+        player.setPosition(
+                PlayerPositionEnum.valueOf(rs.getString("position"))
+        );
+
+        player.setGoalNb(rs.getObject("goal_nb", Integer.class));
+        player.setTeam(team);
+
+        return player;
+    }
+
 }

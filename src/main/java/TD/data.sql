@@ -11,3 +11,12 @@ insert into Player values
 (3, 'Jude Bellingham', 21, 'MIDF', 1),
 (4, 'Robert Lewandowski', 36, 'STR', 2),
 (5, 'Karim Benzema', 33, 'STR', 3);
+
+UPDATE player SET goal_nb = 0 WHERE name = 'Thibaut Courtois';
+UPDATE player SET goal_nb = 2 WHERE name = 'Dani Carvajal';
+UPDATE player SET goal_nb = 5 WHERE name = 'Jude Bellingham';
+UPDATE player SET goal_nb = NULL WHERE name = 'Robert Lewandowski';
+UPDATE player SET goal_nb = NULL WHERE name = 'Antoine Griezmann';
+
+INSERT INTO player (id, name, age, position, id_team, goal_nb)
+VALUES (6,'Antoine Griezmann', 33, 'STR', 3, NULL);

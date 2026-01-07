@@ -81,4 +81,20 @@ public class Team {
     public Integer getPlayersCount() {
         return players.size();
     }
+    public Integer getPlayersGoals() {
+
+        int total = 0;
+
+        for (Player player : players) {
+            if (player.getGoalNb() == null) {
+                throw new RuntimeException(
+                        "Nombre de buts inconnu pour le joueur : " + player.getName()
+                );
+            }
+            total += player.getGoalNb();
+        }
+
+        return total;
+    }
+
 }

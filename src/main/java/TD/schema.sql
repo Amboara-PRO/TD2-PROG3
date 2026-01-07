@@ -24,3 +24,6 @@ CREATE TABLE Player(
   position player_position_enum not null,
   id_team int references Team(id)
 );
+
+ALTER TABLE player
+    ADD COLUMN goal_nb INT;
